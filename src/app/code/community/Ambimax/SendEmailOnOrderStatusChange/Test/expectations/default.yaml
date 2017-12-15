@@ -1,0 +1,18 @@
+---
+
+email:
+  get_from:
+    info@example.com: Sales
+
+  subject: 'Status of order #100000001 changed to processing'
+  body: |
+    Order Nr.: 100000001
+    Customer: Jane Luck, Konrad-Zuse-Straße 13, 66115 Saarbrücken, Germany
+    Status: processing
+    New Status: processing
+  body_html: 'Order Nr.: 100000001<br />=0ACustomer: Jane Luck, Konrad-Zuse-Stra=C3=9Fe 13, 66115 Saarbr=C3=BCcken, Germany<br />=0AStatus: processing<br />=0ANew Status: processing'
+  body_txt: 'Order Nr.: 100000001=0ACustomer: Jane Luck, Konrad-Zuse-Stra=C3=9Fe 13, 66115 Saarbr=C3=BCcken, Germany=0AStatus: processing=0ANew Status: processing'
+  recipients:
+    - a@example.com
+    - b@example.com
+    - c@example.com

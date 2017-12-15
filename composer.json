@@ -1,0 +1,17 @@
+{
+  "name": "ambimax/magento-module-ambimax-sendemailonorderstatuschange",
+  "type": "magento-module",
+  "description": "Magento 1 module to send emails when order status changes",
+  "license": "proprietary",
+  "homepage": "https://www.ambimax.de",
+  "require": {
+    "php": ">=5.6.0",
+    "magento-hackathon/magento-composer-installer": "3.*"
+  },
+  "authors":[
+    {
+      "name": "Tobias Schifftner",
+      "email": "ts@ambimax.de"
+    }
+  ]
+}

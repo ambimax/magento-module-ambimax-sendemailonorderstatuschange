@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ambimax_SendEmailOnOrderStatusChange>
+            <version>1.0.0</version>
+        </Ambimax_SendEmailOnOrderStatusChange>
+    </modules>
+
+    <global>
+        <models>
+            <ambimax_sendemailonorderstatuschange>
+                <class>Ambimax_SendEmailOnOrderStatusChange_Model</class>
+            </ambimax_sendemailonorderstatuschange>
+        </models>
+
+        <helpers>
+            <ambimax_sendemailonorderstatuschange>
+                <class>Ambimax_SendEmailOnOrderStatusChange_Helper</class>
+            </ambimax_sendemailonorderstatuschange>
+        </helpers>
+        <events>
+            <sales_order_save_commit_after>
+                <observers>
+                    <ambimax_sendemailonorderstatuschange>
+                        <type>singleton</type>
+                        <class>ambimax_sendemailonorderstatuschange/observer</class>
+                        <method>sendEmailOnOrderStatusChange</method>
+                    </ambimax_sendemailonorderstatuschange>
+                </observers>
+            </sales_order_save_commit_after>
+        </events>
+    </global>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Ambimax_SendEmailOnOrderStatusChange>
+                    <files>
+                        <default>Ambimax_SendEmailOnOrderStatusChange.csv</default>
+                    </files>
+                </Ambimax_SendEmailOnOrderStatusChange>
+            </modules>
+        </translate>
+    </adminhtml>
+
+    <default>
+        <sales_email>
+            <sendemailonorderstatuschange>
+                <enabled>0</enabled>
+                <enable_logging>1</enable_logging>
+                <mail_subject>Status of order #{{var order.increment_id}} changed to {{var order.state}}</mail_subject>
+                <mail_body><![CDATA[
+Order Nr.: {{var order.increment_id}}
+Customer: {{var order.getBillingAddress().format('oneline')}}
+Status: {{var order.status}}
+New Status: {{var order.state}}
+                ]]></mail_body>
+            </sendemailonorderstatuschange>
+        </sales_email>
+    </default>
+
+    <phpunit>
+        <suite>
+            <modules>
+                <Ambimax_SendEmailOnOrderStatusChange/>
+            </modules>
+        </suite>
+    </phpunit>
+</config>

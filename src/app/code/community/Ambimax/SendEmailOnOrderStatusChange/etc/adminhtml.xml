@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <sales_email>
+                                        <children>
+                                            <sendemailonorderstatuschange tranlate="title">
+                                                <title>Send Email On Order Status Change</title>
+                                                <sort_order>1</sort_order>
+                                            </sendemailonorderstatuschange>
+                                        </children>
+                                    </sales_email>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
