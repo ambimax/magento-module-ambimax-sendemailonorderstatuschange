@@ -58,6 +58,7 @@ class Ambimax_SendEmailOnOrderStatusChange_Model_Mail extends Zend_Mail
         }
 
         if ( !$this->orderStatusIsValidForSending() ) {
+            $this->log(sprintf('Order status %s is not valid for sending', $this->getOrder()->getState()));
             return $this;
         }
 
@@ -86,7 +87,7 @@ class Ambimax_SendEmailOnOrderStatusChange_Model_Mail extends Zend_Mail
     public function getStoreConfig($key)
     {
         return Mage::getStoreConfig(
-            'sales_email/sendemailonstatuschange/' . $key,
+            'sales_email/sendemailonorderstatuschange/' . $key,
             $this->getOrder()->getStore()
         );
     }
@@ -260,8 +261,7 @@ class Ambimax_SendEmailOnOrderStatusChange_Model_Mail extends Zend_Mail
      */
     protected function getValidStatus()
     {
-        $validStatus = (array)explode(',', Mage::getStoreConfig('sales_email/sendemailonstatuschange/send_on_status'));
-        return $validStatus;
+        return (array)explode(',', $this->getStoreConfig('send_on_status'));
     }
 
     /**
