@@ -54,6 +54,7 @@ Customer: {{var order.getBillingAddress().format('oneline')}}
 Status: {{var order.status}}
 New Status: {{var order.state}}
                 ]]></mail_body>
+                <send_on_status>NULL</send_on_status>
             </sendemailonorderstatuschange>
         </sales_email>
     </default>
