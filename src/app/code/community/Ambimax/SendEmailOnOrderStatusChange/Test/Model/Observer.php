@@ -57,9 +57,6 @@ class Ambimax_SendEmailOnOrderStatusChange_Test_Model_Observer extends EcomDev_P
         return $varienEventObserverMock;
     }
 
-    /**
-     * @throws Exception
-     */
     public function testObserverHandlesEmailSending()
     {
         $mailMock = $this->_getAmbimaxSendEmailOnOrderStatusChangeMailMock();
