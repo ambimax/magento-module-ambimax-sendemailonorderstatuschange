@@ -45,7 +45,7 @@ config:
     Customer: {{var order.getBillingAddress().format('oneline')}}
     Status: {{var order.status}}
     New Status: {{var order.state}}
-
+  default/sales_email/sendemailonorderstatuschange/send_on_status: NULL (NULL/"unkown" value)
 eav:
   customer:
     - entity_id: 1

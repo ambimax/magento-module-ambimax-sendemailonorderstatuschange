@@ -37,10 +37,10 @@ scope:
 config:
   default/trans_email/ident_general/email: info@example.com
   default/trans_email/ident_general/name: Sales
-  default/sales_email/sendemailonstatuschange/enabled: 0
-  default/sales_email/sendemailonstatuschange/recipient: a@example.com, b@example.com,c@example.com
-  default/sales_email/sendemailonstatuschange/mail_subject: 'Status of order #{{var order.increment_id}} changed to {{var order.state}}'
-  default/sales_email/sendemailonstatuschange/mail_body: |
+  default/sales_email/sendemailonorderstatuschange/enabled: 0
+  default/sales_email/sendemailonorderstatuschange/recipient: a@example.com, b@example.com,c@example.com
+  default/sales_email/sendemailonorderstatuschange/mail_subject: 'Status of order #{{var order.increment_id}} changed to {{var order.state}}'
+  default/sales_email/sendemailonorderstatuschange/mail_body: |
     Order Nr.: {{var order.increment_id}}
     Customer: {{var order.getBillingAddress().format('oneline')}}
     Status: {{var order.status}}

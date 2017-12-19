@@ -95,5 +95,34 @@ class Ambimax_SendEmailOnOrderStatusChange_Test_Model_Mail extends EcomDev_PHPUn
         $this->_mail->send($transport);
     }
 
+    /**
+     * @loadFixture ~Ambimax_SendEmailOnOrderStatusChange/invalid-status
+     * @loadExpectation ~Ambimax_SendEmailOnOrderStatusChange/default
+     */
+    public function testNoSendingWhenOrderStatusIsNotValidForSending()
+    {
+        $transport = $this->_getTransportMock();
+
+        $transport
+            ->expects($this->never())
+            ->method('send');
+
+        $this->_mail->send($transport);
+    }
+
+    /**
+     * @loadFixture ~Ambimax_SendEmailOnOrderStatusChange/no-status
+     * @loadExpectation ~Ambimax_SendEmailOnOrderStatusChange/default
+     */
+    public function testNoSendingWhenNoOrderStatusIsSetForSending()
+    {
+        $transport = $this->_getTransportMock();
+
+        $transport
+            ->expects($this->never())
+            ->method('send');
+
+        $this->_mail->send($transport);
+    }
 
 }
