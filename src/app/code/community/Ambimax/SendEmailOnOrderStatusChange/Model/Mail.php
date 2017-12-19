@@ -216,11 +216,13 @@ class Ambimax_SendEmailOnOrderStatusChange_Model_Mail extends Zend_Mail
 
     /**
      * @param Mage_Sales_Model_Order $order
+     * @return Ambimax_SendEmailOnOrderStatusChange_Model_Mail
      */
     public function setOrder(Mage_Sales_Model_Order $order)
     {
         $this->_order = $order;
         $this->getTemplateProcessor()->setVariables(['order' => $order]);
+        return $this;
     }
 
     /**
