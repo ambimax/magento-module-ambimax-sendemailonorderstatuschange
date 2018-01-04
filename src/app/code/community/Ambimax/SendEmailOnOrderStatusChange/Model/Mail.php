@@ -69,6 +69,9 @@ class Ambimax_SendEmailOnOrderStatusChange_Model_Mail extends Zend_Mail
         return parent::send($tranport);
     }
 
+    /**
+     * @return bool
+     */
     public function isValid()
     {
         if ( !$this->hasRecipients() ) {
@@ -271,5 +274,4 @@ class Ambimax_SendEmailOnOrderStatusChange_Model_Mail extends Zend_Mail
     {
         return in_array($this->getOrder()->getState(), $this->getValidStatus());
     }
-
 }

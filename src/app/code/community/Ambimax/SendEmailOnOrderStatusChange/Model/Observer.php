@@ -11,7 +11,7 @@ class Ambimax_SendEmailOnOrderStatusChange_Model_Observer
         /** @var Mage_Sales_Model_Order $order */
         $order = $observer->getOrder();
 
-        Mage::getSingleton('ambimax_sendemailonorderstatuschange/mail')
+        Mage::getModel('ambimax_sendemailonorderstatuschange/mail')
             ->setOrder($order)
             ->send();
     }
